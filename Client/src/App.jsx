@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import './App.css'
 import Login from './Pages/Login'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -15,5 +16,15 @@ function App() {
       </>
     )
   }
+=======
+import Dashboard from "./Components/Dashboard/Dashboard"
+const App = () => {
+  return(
+    <>
+      <Dashboard/>
+    </>
+  ) 
+}
+>>>>>>> Stashed changes
 
 export default App

@@ -1,0 +1,103 @@
+/* Sidebar styles */
+.sidebar {
+    width: 200px;
+    background-color: #2c2c2c; /* Dark background */
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #ffffff; /* White text for contrast */
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #3a3a3a; /* Slight hover effect */
+    border-radius: 4px;
+  }
+  
+  /* Header styles */
+  .header {
+    background-color: #1f1f1f; /* Dark background */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff; /* White text */
+  }
+  
+  .wallet-main {
+    font-weight: bold;
+    color: #00ffcc; /* Accent color for wallet balance */
+  }
+  
+  /* Wallet styles */
+  .wallet {
+    background-color: #333333; /* Darker background for wallet box */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #ffffff; /* White text */
+  }
+  
+  /* Transactions styles */
+  .transactions {
+    background-color: #333333; /* Dark background for transaction box */
+    padding: 20px;
+    border-radius: 8px;
+    color: #ffffff; /* White text */
+  }
+  
+  .transactions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .transactions li {
+    padding: 10px 0;
+    border-bottom: 1px solid #444444; /* Darker border for separation */
+  }
+  
+  .transactions .completed {
+    color: #4caf50; /* Green for completed */
+  }
+  
+  .transactions .pending {
+    color: #ff5722; /* Red/orange for pending */
+  }
+  
+  .date {
+    font-size: 0.8em;
+    color: #bbbbbb; /* Light gray for the date */
+  }
+  
+  /* Dashboard layout */
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #1a1a1a; 
+    width:100vw;/* Dark background for the dashboard */
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-content {
+      flex-direction: column;
+    }
+  }
+  
