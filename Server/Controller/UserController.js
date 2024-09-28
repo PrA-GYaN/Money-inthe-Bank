@@ -1,4 +1,4 @@
-const {Users} = require('../Model/model');
+const {Users} = require('../Models/model');
 const { hashPassword, comparePassword } = require('../Utils/passwordUtils');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
