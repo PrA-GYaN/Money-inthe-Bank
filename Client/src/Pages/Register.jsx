@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../Css/register.css';
+<<<<<<< Updated upstream
+=======
+import { auth } from '../Utils/firebaseConfig.js';
+import { RecaptchaVerifier,signInWithPhoneNumber } from "firebase/auth";
+>>>>>>> Stashed changes
 
 const Register = () => {
   const [formData, setFormData] = useState({
