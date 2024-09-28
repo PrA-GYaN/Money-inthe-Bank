@@ -1,0 +1,130 @@
+.landing {
+    width: 100vw;
+    font-family: 'Poppins', sans-serif;
+    padding: 2vw;
+  }
+  
+  .landing-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.7vw 5vw;
+  }
+  .landing-nav
+  {
+    display: flex;
+    flex-direction: row;
+    gap: 35vw;
+  }
+  .left-section
+  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5vw;
+  }
+  .landing-nav ul {
+    display: flex;
+    gap: 3vw;
+    list-style: none;
+    margin: 0;
+  }
+  
+  .landing-nav ul li a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: #19224D;
+    font-weight: 600;
+  }
+  
+  .brand {
+    font-size: 2.5vw;
+    font-weight: bolder;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .sign-in,
+  .sign-up {
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .sign-in {
+    background-color: transparent;
+    color: #000;
+  }
+  
+  .sign-up {
+    background-color: #ff7f87;
+    color: #fff;
+  }
+  
+  .landing-main {
+    display: flex;
+    padding:2vw 1vw 2vw 8vw;
+    gap: 3px;
+  }
+  
+  .main-text p {
+    color: #257A50;
+    font-size: 2vw;
+    font-weight: 600;
+  }
+  .main-text
+  {
+    flex: 1;
+  }
+  .slogan {
+    font-size: 5vw;
+    color: #0f1e35;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  
+  .green-shape {
+    height: 380px;
+    width: 320px;
+    background-color: #b3dab8;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    margin-right: 12vw;
+    margin-top: 2vw;
+  }
+  
+  .landing-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .main-img
+  {
+    position: relative;
+  }
+  .image
+  {
+    position: absolute;
+    top: 0;
+    left: -150px;
+    width: 110%;
+  }
+  .quick-payment,
+  .user-activity {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: #b3dab8;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .quick-payment:hover,
+  .user-activity:hover {
+    background-color: #a3cda8;
+  }
+  

@@ -1,0 +1,42 @@
+.group-container
+{
+    padding: 1vw;
+}
+.group-details
+{
+    display: flex;
+    flex-direction: row;
+    background-color: #b3dab8;
+    padding: 2vw 4vw;
+    gap: 57vw;
+    border-radius: 20px;
+}
+.grp-right
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+.grp-left
+{
+    padding: 0.7vw 1.5vw;
+}
+.grp-invite
+{
+    padding: 0.7vw 1.5vw;
+    background-color: #9e9e9e;
+    border-radius: 12px;
+}
+.grp-det
+{
+    padding: 0.7vw 1.5vw;
+    background-color: #72a779;
+    border-radius: 12px;
+}
+.group-body
+{
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
