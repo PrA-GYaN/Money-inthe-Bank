@@ -5,7 +5,7 @@ const transactionRoutes = require('./Routes/transaction.routes');
 
 const userRoute = require('./Routes/userRoute');
 const { connectDB } = require('./db/db');
-
+const cors = require('cors')
 const config = require('./Config/config')
 const app = express()
 
