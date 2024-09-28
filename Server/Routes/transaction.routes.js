@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-const {createTransaction,getTransaction}  = require("../Controller/Transactions.controller")
-=======
+
 const { createTransaction, updateTransaction }  = require("../Controller/Transactions.controller")
->>>>>>> Stashed changes
 const express = require("express")
 
 
