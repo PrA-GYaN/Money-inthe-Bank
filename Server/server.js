@@ -1,18 +1,15 @@
 const express = require('express');
-const { app, server } = require("./socket/socket.js");
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const userRoutes = require('./Routes/userRoutes');
-const messageRoutes = require('./Routes/message.routes');
-const { connectToDatabase } = require('./Model/model'); // Adjusted import
+const userRoutes = require('./Route/userRoute');
+const { connectToDatabase } = require('./Model/model');
 
 const port = process.env.PORT || 5000;
-
-// Middleware
+const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*', // For production, specify allowed origins
+  origin: process.env.CORS_ORIGIN || '*', 
 }));
 app.use(helmet());
 
