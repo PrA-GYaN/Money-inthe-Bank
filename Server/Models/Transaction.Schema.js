@@ -1,18 +1,14 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const transactionSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    phoneNumber: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    balance: {
-        type: Number,
-        default: 0
-    }
-})
+const transactionSchema = new Schema(
+  {
+    sender: { type: String, required: true, trim: true },
+    receiver: { type: String, required: true, trim: true },
+    amount: { type: Number, required: true, default: 0.0 },
+    status: { type: String, default: "pending", enum: ["pending", "completed"] }
+  },
+  { timestamps: true }
+);
 
-const Transaction = mogoose.model("Transaction", transactionSchema)
-module.exports = Transaction
+module.exports = mongoose.model("Transaction", transactionSchema);
