@@ -1,17 +1,11 @@
 const mongoose = require("mongoose")
 
 const transactionSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    phoneNumber: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    balance: {
-        type: Number,
-        default: 0
-    }
+    fromUser: { type: String, ref: 'User' },
+    toUser: { type: String, ref: 'User' },
+    amount: { type: Number, required: true },
+    status: { type: String, enum: ['pending', 'completed'], default: 'pending' },
+    createdAt: { type: Date, default: Date.now },
 })
 
 const Transaction = mongoose.model("Transaction", transactionSchema)

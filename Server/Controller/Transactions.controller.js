@@ -1,25 +1,50 @@
 const Transaction = require('../Models/Transaction.Schema')
+const Users = require("../Models/Users")
+exports.createTransaction = async (req, res) => {
+    try {
+        const { fromUser, toUser, amount } = req.body;
 
-exports.createTransaction = async(req, res) => {
-    const {sender, receiver, amount, status} = req.body
-    try{
+        // Find sender and receiver
+        const sender = await Users.findById(fromUser);
+        const receiver = await Users.findById(toUser);
+        if(fromUser === toUser){
+            return res.status(400).json({ message: 'Cannot transfer to the same user' });
+        }
+        if (!sender || !receiver) {
+            return res.status(400).json({ message: 'User not found' });
+        }
+
+        // Create a new transaction
         const transaction = new Transaction({
-            sender, receiver, amount, status
-        })
-        await transaction.save()
-        res.status(201).json(transaction)
-    }catch(err){
-        throw new Error(err.message)
+            fromUser: sender._id,
+            toUser: receiver._id,
+            amount,
+        });
+
+        await transaction.save();
+
+        res.status(201).json({ message: 'Transaction created', transaction });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
+
 }
 
-exports.getTransaction = async(req, res) => {
-    const userId = req.user._id
-    try{
-        const transactions = await Transaction.find({$or: [{sender: userId}, {receiver: userId}],}).populate('sender receiver', 'username, email')
-        res.status(200),json(transactions)
-    }catch(error){
-        throw new Error(error.message)
+exports.updateTransaction = async (req, res) => {
+
+    try {
+        const transaction = await Transaction.findById(req.params.id);
+
+        if (!transaction) {
+            return res.status(404).json({ message: 'Transaction not found' });
+        }
+
+        transaction.status = 'completed';
+        await transaction.save();
+
+        res.status(200).json({ message: 'Transaction completed', transaction });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
 }
 
