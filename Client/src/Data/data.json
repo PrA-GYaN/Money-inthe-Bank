@@ -1,0 +1,14 @@
+{
+    "user": {
+      "name": "John Doe",
+      "wallet": 3900.54,
+      "company": "Acme Inc",
+      "walletMain": 20378.99
+    },
+    "transactions": [
+      { "id": 1, "type": "Transfer to John", "amount": 1500, "status": "Completed", "date": "July 16, 2022" },
+      { "id": 2, "type": "Transfer to Sarah", "amount": 600, "status": "Completed", "date": "May 10, 2022" },
+      { "id": 3, "type": "Water bill payment", "amount": 20, "status": "Pending", "date": "May 10, 2022" }
+    ]
+  }
+  
