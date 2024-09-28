@@ -1,4 +1,7 @@
+
+require('dotenv').config();
 const express = require('express');
+<<<<<<< Updated upstream
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -12,20 +15,26 @@ app.use(cors({
   origin: process.env.CORS_ORIGIN || '*', 
 }));
 app.use(helmet());
+=======
 
-// Rate Limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, 
-});
-app.use(limiter);
+const cors = require('cors');
 
-connectToDatabase().catch(error => {
-  console.error("Failed to connect to the database:", error);
-  process.exit(1);
-});
+const app = express()
+const transactionRoutes = require('./Routes/transaction.routes');
+const { connectDB } = require('./db/db');
 
-app.use('/users', userRoutes);
+app.use(cors())
+
+console.log(require('dotenv').config())
+
+const port = process.env.PORT || 5000;
+
+app.use(express.urlencoded({extendded: true}))
+>>>>>>> Stashed changes
+
+
+
+app.use('/api/transaction', transactionRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -34,4 +43,5 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+  connectDB()
 });
