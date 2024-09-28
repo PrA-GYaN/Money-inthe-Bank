@@ -19,14 +19,19 @@ const Register = () => {
       ...formData,
       [name]: value,
     });
+    // Clear specific error when the user starts typing
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
   const validate = () => {
     const newErrors = {};
     if (!formData.user_name) newErrors.user_name = 'Username is required';
-        if (!formData.email) newErrors.email = 'Email is required';
+    if (!formData.email) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email format is invalid';
     if (!formData.phone) newErrors.phone = 'Phone number is required';
     if (!formData.password) newErrors.password = 'Password is required';
+    else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters long';
+    
     return newErrors;
   };
 
@@ -36,11 +41,10 @@ const Register = () => {
     if (Object.keys(validationErrors).length === 0) {
       setLoading(true);
       setSuccessMessage('');
+      setErrors('');
       try {
-        const response = await axios.post('http://localhost:5000/users/register', formData);
-
+        const response = await axios.post('http://localhost:5000/api/user/register', formData);
         setSuccessMessage(response.data.message || 'Registration successful!');
-
         setFormData({
           user_name: '',
           email: '',
@@ -64,7 +68,9 @@ const Register = () => {
       <form onSubmit={handleSubmit} className="form">
         {['user_name', 'email', 'phone', 'password'].map((field) => (
           <div className="formGroup" key={field}>
-            <label className="label">{field.charAt(0).toUpperCase() + field.slice(1).replace('_', ' ')}:</label>
+            <label className="label">
+              {field.charAt(0).toUpperCase() + field.slice(1).replace('_', ' ')}:
+            </label>
             <input
               type={field === 'password' ? 'password' : field === 'phone' ? 'tel' : 'text'}
               name={field}

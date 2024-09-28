@@ -1,9 +1,10 @@
-const {group}  = require("../Controller/Group")
+const {groupCreater,getGroupByName}  = require("../Controller/Group.controller")
 const express = require("express")
 
 
 const router = express.Router()
 
-router.post('/group',group)
+router.post('/group',groupCreater);
+router.get('/groups/name/:group_name', getGroupByName);
 
 module.exports = router

@@ -40,3 +40,17 @@
     align-items: center;
     justify-content: center;
 }
+.c-tran
+{
+    padding: 1vw 2vw;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.c-tran:hover
+{
+    cursor: pointer;
+}
+.mod-btn:hover
+{
+    cursor: pointer;
+}

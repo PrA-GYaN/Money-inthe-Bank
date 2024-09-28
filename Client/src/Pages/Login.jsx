@@ -33,7 +33,7 @@ const Login = () => {
       setLoading(true);
       setSuccessMessage('');
       try {
-        const response = await axios.post('http://localhost:5000/users/login', formData);
+        const response = await axios.post('http://localhost:5000/api/user/login', formData);
 
         setSuccessMessage(response.data.message || 'Login successful!');
         setFormData({

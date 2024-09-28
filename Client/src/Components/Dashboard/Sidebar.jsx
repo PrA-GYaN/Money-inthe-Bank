@@ -10,7 +10,7 @@ const Sidebar = () => {
           <li>History</li>
           <li>Electricity</li>
           <li>Remittance</li>
-          <li>Airlines</li>
+          <li>Group</li>
           <li>Transportation</li>
         </ul>
       </div>

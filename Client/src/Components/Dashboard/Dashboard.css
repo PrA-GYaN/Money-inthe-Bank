@@ -94,6 +94,16 @@
     flex-grow: 1;
     padding: 20px;
   }
+  .clk-btn
+  {
+    display: inline;
+    padding:0.6vw 1vw;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    float: right;
+    margin-bottom: 5vw;
+  }
   
   @media (max-width: 768px) {
     .dashboard-content {

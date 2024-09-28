@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 
 const transactionRoutes = require('./Routes/transaction.routes');
+const groupRoute = require('./Routes/group.routes');
 
 const userRoute = require('./Routes/userRoute');
 const { connectDB } = require('./db/db');
@@ -20,6 +21,7 @@ app.use(express.json());
 
 app.use('/api/transaction', transactionRoutes);
 app.use('/api/user', userRoute)
+app.use('/api', groupRoute)
 
 app.listen(config.PORT, () => {
   console.log(`Server is running on http://localhost:${config.PORT}`);
