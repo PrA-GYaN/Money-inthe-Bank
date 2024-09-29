@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const transactionSchema = new mongoose.Schema({
+    transc_name: {type:String},
     fromUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     toUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     amount: { type: Number, required: true },

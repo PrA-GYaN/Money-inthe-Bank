@@ -2,11 +2,13 @@ const Transaction = require('../Models/Transaction.Schema')
 const Users = require("../Models/Users")
 exports.createTransaction = async (req, res) => {
     try {
-        const { fromUser, toUser, amount } = req.body;
+        const { transc_name,fromUser, toUser, amount } = req.body;
 
         // Find sender and receiver
         const sender = await Users.findById(fromUser);
         const receiver = await Users.findById(toUser);
+        console.log(sender);
+        console.log(receiver);
         if(fromUser === toUser){
             return res.status(400).json({ message: 'Cannot transfer to the same user' });
         }

@@ -1,0 +1,65 @@
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Modal header */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .group-detail,
+  .expense-detail,
+  .user-list {
+    margin: 20px 0;
+  }
+  
+  .group-input {
+    width: calc(100% - 30px);
+    padding: 5px;
+    margin-right: 5px;
+  }
+  
+  .edit-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .user-item {
+    display: flex;
+    align-items: center;
+  }
+
+  
+  .user-info p {
+    margin: 0;
+  }
+  

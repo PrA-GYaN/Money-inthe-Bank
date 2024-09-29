@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import axios
 import '../../Css/group.css';
 import Gdetails from '../../Components/Dashboard/gdetails';
+import Transaction_create from '../../Components/Dashboard/Transaction.create';
 
 const Group = () => {
     const [transaction, setTransaction] = useState(true);
+    const [detailsmodal, setdetailsOpen] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [group, setGroup] = useState(null);
     const [group_name, setGroupName] = useState('goa');
@@ -25,7 +27,7 @@ const Group = () => {
         fetchGroup();
     }, []);
 
-    console.log(group);
+
 
     return (
         <div className="group-container">
@@ -35,8 +37,8 @@ const Group = () => {
                         <div className="grp-left">{group_name}</div>
                         <div className="grp-right">
                             <div className="grp-det">
-                                <div className='mod-btn' onClick={() => setModalOpen(true)}>{"Details"}</div>
-                                <Gdetails isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+                                <div className='mod-btn' onClick={() => setdetailsOpen(true)}>{"Details"}</div>
+                                <Gdetails isOpen={detailsmodal} onClose={() => setdetailsOpen(false)} />
                             </div>
                             <div className="grp-invite">{"group.invite"}</div>
                         </div>
@@ -52,7 +54,8 @@ const Group = () => {
                     ))
                 ) : (
                     <>
-                        <div className="c-tran">Create a New Transaction</div>
+                        <div className='mod-btn' onClick={() => setModalOpen(true)}>{"Create a New Transaction"}</div>
+                        <Transaction_create isOpen={modalOpen} onClose={() => setModalOpen(false)} grp_id={group}/>
                     </>
                     
                 )}

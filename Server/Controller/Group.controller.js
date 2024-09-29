@@ -25,10 +25,33 @@ const getGroupByName = async (req, res) => {
         if (!group) {
             return res.status(404).json({ message: 'Group not found' });
         }
-        res.status(200).json(group);
+        res.status(200).json(group);a
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-module.exports = {groupCreater,getGroupByName}
+
+
+
+const addUserToGroupByPhone = async (req, res) => {
+    const { phone } = req.params; 
+    const { groupId } = req.body; 
+
+    try {
+        const user = await User.findOne({ phone });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const group = await Group.findById(groupId);
+        if (!group) {
+            return res.status(404).json({ message: 'Group not found' });
+        }
+
+        if (group.peoples.includes(user._id)) {
+            return res.status(400).json({ message: 'User is already in the group' });
+        }
+    };
+
+module.exports = {groupCreater,getGroupByName,addUserToGroupByPhone};
